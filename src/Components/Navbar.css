@@ -1,0 +1,13 @@
+.navbar__container {
+    position: 'sticky';
+    /* position: '-webkit-sticky'; */
+    top: 0;
+    width: 100%;
+    padding: 110;
+};
+
+.navbar__menulist {
+    border-radius: 0;
+    border-width: 0;
+}
+
