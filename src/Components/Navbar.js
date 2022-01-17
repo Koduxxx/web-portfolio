@@ -51,7 +51,7 @@ export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div className="navbar__container" style={{position: 'sticky'}}>
-      <Box bg={useColorModeValue('background.navbarLight', 'background.lightSecondary')} px={0} display={{base: 'none', md: 'none', lg: 'flex'}} borderBottom={'none'} mb={16}>
+      <Box bg={useColorModeValue('background.navbarLight', 'background.lightSecondary')} px={0} display={{base: 'none', md: 'none', lg: 'flex'}} borderBottom={'none'}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-around'} w={'100%'}>
           <Name />
           <Flex alignItems={'center'}>
@@ -70,7 +70,8 @@ export default function Nav() {
         <Flex h={14} alignItems={'center'} justifyContent={'space-between'}>
         <Menu>
             <MenuButton as={IconButton} icon={<HamburgerIcon/>} color="black" />
-            <MenuList minW={'100vw'} borderRadius={0} borderWidth={0} px={7} boxShadow={'none'} bg={useColorModeValue('background.lightPrimary', 'background.lightSecondary')} fontSize={14} color="black">
+            {/* 100vw causes a horizontal scrollbar. Need to fix so it's 100% of device width without using vw */}
+            <MenuList w={'100vw'} maxW={'100%'} borderRadius={0} borderWidth={0} px={7} boxShadow={'none'} bg={useColorModeValue('background.lightPrimary', 'background.lightSecondary')} fontSize={14} color="black">
                 {Links.map((link) => 
                     <NavLink key={link}>
                         <MenuItem onClick={() => scrollToSection(link)}>{link}</MenuItem>

@@ -1,63 +1,112 @@
-import React from 'react';
+import React from "react";
 import {
-    Stack,
-    VStack,
-    Image,
-    Center,
-    useColorModeValue,
-    Icon,
-    Link
-  } from '@chakra-ui/react';
-  import { FaLinkedin, FaGithub  } from 'react-icons/fa';
-  import {  IoIosMail } from 'react-icons/io';
+  Stack,
+  VStack,
+  Image,
+  Center,
+  useColorModeValue,
+  Icon,
+  Link,
+  Heading,
+  Text,
+  UnorderedList,
+  ListItem,
+  ListIcon,
+  List,
+} from "@chakra-ui/react";
+import { FaLinkedin, FaGithub, FaGraduationCap } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
 
 export default function Home() {
-    return(
-        <Center bg={useColorModeValue('background.lightPrimary', 'background.darkPrimary')} id="Home">
-            <Stack direction={['column', 'column', 'row']}>
-                <VStack>
-                    <Center style={{height: 350, width: '30vw', backgroundColor: 'green'}}>
-                        <Image
-                            borderRadius={"full"}
-                            src="https://bit.ly/dan-abramov"
-                            objectFit={"cover"}
-                            boxSize={"350px"}
-                            alt="Image of me"
-                        />
-                    </Center>
-                    <Center>
-                        Justin Terry
-                    </Center>
-                    <Center>
-                        Software Engineer
-                    </Center>
-                    <Center>
-                        <Link href="https://www.linkedin.com/in/justin-terry-743939194/" isExternal>
-                            <Icon as={FaLinkedin} w={8} h={8} color={"brown"}/>
-                        </Link>
-                        <Link href="https://github.com/Koduxxx" isExternal>
-                            <Icon as={FaGithub} w={8} h={8} color={"brown"}/>
-                        </Link>
-                        <Link href="mailto:justinterry796@gmail.com" isExternal>
-                            <Icon as={IoIosMail} w={8} h={8} color={"brown"}/>
-                        </Link>
-                    </Center>
-                    <div style={{height: 300, width: '50vw', backgroundColor: 'purple'}}>div 2</div>
-                </VStack>
-                <VStack>
-                    <div style={{height: 300, width: '50vw', backgroundColor: 'orange'}}>div 3</div>
-                    <div style={{height: 300, width: '50vw', backgroundColor: 'red'}}>
-                        <Stack direction={["column", "column", "row"]}>
-                            <div>
-                                Interests
-                            </div>
-                            <div>
-                                Education
-                            </div>
-                        </Stack>
-                    </div>
-                </VStack>
+  return (
+    <div>
+      <Center
+        bg={useColorModeValue(
+          "background.lightPrimary",
+          "background.darkPrimary"
+        )}
+        id="Home"
+        // m={8}
+          p={10}
+      >
+        <Stack direction={["column", "column", "row"]} justifyItems={'center'} alignContent={'center'} justifyContent={'center'}>
+          <VStack
+          //  mx={20}
+           >
+            <Center minW={250}>
+              <Image
+              borderRadius={"full"}
+              src="https://bit.ly/dan-abramov"
+              objectFit={"cover"}
+              boxSize={"250px"}
+              alt="Image of me"
+              />
+            </Center>
+            
+            <Center>Justin Terry</Center>
+            <Center>Software Engineer</Center>
+            <Center>
+              <Link
+                href="https://www.linkedin.com/in/justin-terry-743939194/"
+                isExternal
+              >
+                <Icon as={FaLinkedin} w={8} h={8} color={"brown"} />
+              </Link>
+              <Link href="https://github.com/Koduxxx" isExternal>
+                <Icon as={FaGithub} w={8} h={8} color={"brown"} />
+              </Link>
+              <Link href="mailto:justinterry796@gmail.com" isExternal>
+                <Icon as={IoIosMail} w={8} h={8} color={"brown"} />
+              </Link>
+            </Center>
+          </VStack>
+          <VStack>
+            <div>
+              <Heading>Biography</Heading>
+              <Text>
+                Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis. Pariatur in ipsum tempor esse incididunt laboris laboris anim
+                tempor magna voluptate duis.
+              </Text>
+            </div>
+            <Stack direction={["column", "column", "row"]}>
+              <div
+                style={{ backgroundColor: "red" }}
+              >
+                <Stack direction={["column", "column", "column", "row"]}>
+                  <div>
+                    <Heading>Interests</Heading>
+                    <UnorderedList>
+                      <ListItem>Software Engineering</ListItem>
+                      <ListItem>Cloud computing</ListItem>
+                      <ListItem>Exercising</ListItem>
+                    </UnorderedList>
+                  </div>
+                  <div>
+                    <Heading>Education</Heading>
+                    <List>
+                      <ListItem>
+                        <ListIcon as={FaGraduationCap} />
+                        Hey
+                      </ListItem>
+                    </List>
+                  </div>
+                </Stack>
+              </div>
             </Stack>
-        </Center>
-    )
+          </VStack>
+        </Stack>
+      </Center>
+    </div>
+  );
 }
