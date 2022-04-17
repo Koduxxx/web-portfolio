@@ -1,0 +1,10 @@
+Make tapping resume while on mobile download the resume as a pdf
+
+**---Experience---**
+the cards are a bit too wide on desktop view
+
+**---Skills---**
+
+**---Projects---**
+spam clicking the buttons can cause the projects to not show up
+

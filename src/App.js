@@ -1,17 +1,18 @@
-import './App.css';
 import React from 'react';
-import { Navbar, Home, Skills, Experience, Projects, Resume, Contact} from './Components/index';
+import { Navbar, Home, Skills, Experience, Projects, Contact} from './Components/index';
+import { Box } from '@chakra-ui/react';
 
 export default function App() {
   return (
-    <div>
+    <Box>
         <Navbar />
-        <Home />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Resume />
-        <Contact />
-    </div>
+        <Box>
+          <Home />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Contact />
+        </Box>
+    </Box>
   )
 }
