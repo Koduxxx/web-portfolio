@@ -12,6 +12,7 @@ import {
   MenuList,
   IconButton,
 } from '@chakra-ui/react';
+import { isMobile } from 'react-device-detect';
 import './Navbar.css';
 import ResumePDF from '../assets/JustinTerrysResume.pdf';
 import { MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons';
@@ -37,7 +38,10 @@ const NavLink = ({ children }) => (
       textDecoration: 'none',
     //   bg: useColorModeValue('grey.200', 'grey.700'),
     }}
-    href={children === 'Resume' ? ResumePDF : '#'}>
+    download={children === 'Resume' &&  isMobile === true ? true : false}
+    href={children === 'Resume' ? ResumePDF : '#'}
+    isExternal={children === 'Resume'}
+  >
     {/* // href={children === 'Resume' ? "https://docs.google.com/document/d/1IJFtFzuObuSFldTErFEOYusoBINiY53wR6P8QDcDNJA/edit?usp=sharing" : '#'}> */}
     {children}
   </Link>
@@ -53,7 +57,7 @@ export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div className="navbar__container" style={{position: 'sticky', zIndex: 1000}}>
-      <Box bg={useColorModeValue('background.navbarLight', 'background.navbarDark')} px={0} display={{base: 'none', md: 'none', lg: 'flex'}}>
+      <Box bg={useColorModeValue('background.navbarLight', 'background.navbarDark')} borderBottom={'1px solid rgba(0, 0, 0, 0.1)'} px={0} display={{base: 'none', md: 'none', lg: 'flex'}}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-around'} w={'100%'}>
           <Name />
           <Flex alignItems={'center'}>

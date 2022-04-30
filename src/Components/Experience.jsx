@@ -58,12 +58,12 @@ const jobExperience = [
 ]
 
 export default function Experience(){
-    const brownColor = useColorModeValue('icons.light', 'icons.dark');
     return (
         <Stack 
-            direction={['column', 'column', 'row', 'row']} 
-            px={[5, 10, '50px', 20, 250]}
-            py={51}
+            direction={['column', 'column', 'column', 'row']}
+            layerStyle={'section'}
+            minW={'100%'}
+            py={['50px', '110px']}
             bg={useColorModeValue('background.lightPrimary', 'background.darkPrimary')} 
             id="Experience"
             justifyContent={'space-between'}
@@ -72,17 +72,17 @@ export default function Experience(){
             <Heading variant={'sectionHeader'}>
                 Experience
             </Heading>
-            <VStack spacing={[39, 39, 39]}>
-                {jobExperience.map(job => 
-                <HStack key={job.key} spacing={0}>
-                    <Center display={{base: 'none', sm: 'flex', md: 'none', lg: 'flex', xl: 'flex'}} flexDirection={'column'} style={{height: '100%', width: '50px'}}>
+            <VStack spacing={[39, 39, 39]} w={'full'}>
+                {/* {jobExperience.map(job => 
+                <HStack key={job.key} spacing={0} w={'full'}>
+                    <Center display={{base: 'none', sm: 'flex', md: 'flex', lg: 'flex', xl: 'flex'}} flexDirection={'column'} style={{height: '100%', width: '50px'}}>
                         <Box style={{height: '35%'}}><Box height={'100%'} width={'2px'} backgroundColor={brownColor}/></Box>
                         <Box style={{height: '20%', justifyContent: 'center', display: 'flex', alignItems: 'center'}}><Box width={'20px'} height={'20px'} borderRadius={'50%'} border={'1px solid'} borderColor={brownColor}/></Box>
                         <Box style={{height: '35%'}}><Box height={'100%'} width={'2px'} backgroundColor={brownColor}/></Box>
                     </Center>
                     <Card key={job.dateAndLocation} job={job}/>
-                </HStack>)}
-                {/* {jobExperience.map(job => <Card key={job.dateAndLocation} job={job}/>)} */}
+                </HStack>)} */}
+                {jobExperience.map(job => <Card key={job.dateAndLocation} job={job}/>)}
             </VStack>
         </Stack>
     )
@@ -93,12 +93,13 @@ function Card({job: {title, companyName, dateAndLocation, description}}) {
         <Box 
             className='card'
             bg={useColorModeValue('background.cardLight', 'background.cardDark')}
-            minW={['100%', '70vw', '55vw', '50vw', '40vw']} 
-            maxW={['100%', '70vw', '55vw', '50vw', '40vw']}
+            // minW={['100%', '70vw', '70vw', '50vw', '35vw']} 
+            // maxW={['100%', '70vw', '70vw', '50vw', '35vw']}
+            minW={'full'} 
+            maxW={'full'}
             px={5}
             py={5}
             borderRadius={'sm'}
-            wordBreak
             // boxShadow={['rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px']}
             boxShadow={['rgba(0, 0, 0, 0.26) 0px 0px 5px']}
             overflow='hidden' 

@@ -20,15 +20,17 @@ import './Home.css';
 import { FaLinkedin, FaGithub, FaGraduationCap } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentAttachSharp } from 'react-icons/io5'
+import { isMobile } from 'react-device-detect';
+import ResumePDF from '../assets/JustinTerrysResume.pdf';
 import selfie from "../assets/circle-portrait.png"
 
 export default function Home() {
   const headingColor = useColorModeValue('text.headings.light', 'text.headings.dark');
   return (
-    <Box py={61} px={[5, 10, '100px', '100px', 200]} bg={useColorModeValue("background.lightPrimary", "background.darkPrimary")} id="Home">
+    <Box py={'60px'} layerStyle={'section'} bg={useColorModeValue("background.lightPrimary", "background.darkPrimary")} id="Home">
       <Stack direction={["column", "column", "column", "row"]}>
         <VStack
-          mr={[0, 0, 0, 50]}
+          mr={[0, 0, 0, '60px']}
           spacing={'10px'}
         >
           <Center minW={[200, 270]}>
@@ -57,7 +59,7 @@ export default function Home() {
                 <Icon as={FaGithub} w={[8, 8, 10]} h={[8, 8, 10]} color={"#785447"} />
               </Box>
             </Link>
-            <Link href={"https://docs.google.com/document/d/1IJFtFzuObuSFldTErFEOYusoBINiY53wR6P8QDcDNJA/edit?usp=sharing"} isExternal px={'2px'}>
+            <Link download={isMobile} href={ResumePDF} isExternal px={'2px'}>
               <Box as={motion.div} whileHover={{scale: 1.1}}>
                 <Icon as={IoDocumentAttachSharp} w={[8, 8, 10]} h={[8, 8, 10]} color={"#785447"}/>
               </Box>
@@ -71,37 +73,40 @@ export default function Home() {
         </VStack>
         <VStack>
           <Box>
-            <Heading color={headingColor} fontSize={'2rem'} fontWeight={'400'} mb={2}>Biography</Heading>
-            <Text mb={3} className={'bio-text'} fontSize={['sm', 'md', 'lg']} fontWeight={'400'}>
-              Hi, I’m Justin Terry, currently working as a Software Engineer (Member of Technical Staff) at VMware in the SRE Automation Platform team. 
-              I have a Master’s degree in CS from UT Dallas and a Bachelor of Technology degree from the Indian Institute of Technology (IIT) Guwahati.
+            <Heading color={headingColor} fontSize={['2rem', '2rem', '2rem', '2.5rem']} fontWeight={'400'} mb={2}>Biography</Heading>
+            <Text mb={5} className={'bio-text'} fontSize={['sm', 'md', 'lg']} fontWeight={'400'}>
+              Hi, I’m Justin Terry, currently seeking employment as a Software Developer. I have a year of experience as a Junior Software Developer, and a Full Stack 
+              development certificate from Eleven Fifty Academy, an accelerated learning coding bootcamp.
+
             </Text>
-            <Text mb={3} className={'bio-text'} fontSize={['sm', 'md', 'lg']}>
-              Previously, I worked at Works Applications, Singapore as a Software Engineer, where I worked on delivering libraries, 
-              microservices and distributed multi-tenant architecture to thousands of developers inside the company who utilized them to build various products for our 
-              customers. Aside from work, I am also an open-source enthusiast and have created projects that were listed in GitHub trending.
+            <Text mb={5} className={'bio-text'} fontSize={['sm', 'md', 'lg']}>
+              Previously, I worked at a company known as Voxi, a startup that provides custom platforms for consumers to view and purchase products, as seen on film and 
+              television. My responsibilities included maintaining the websites and applications built for clients, developing React Native applications from scratch, 
+              keeping up to date on development technologies, developing scripts to enhance the cataloging process, and creating reports of my findings on potentially 
+              useful services, such as AWS Rekognition. 
+
             </Text>
-            <Text mb={3} className={'bio-text'} fontSize={['sm', 'md', 'lg']}>
-              My interests lie in solving problems related to large-scale distributed software systems.
+            <Text mb={5} className={'bio-text'} fontSize={['sm', 'md', 'lg']}>
+              My interests lie in problem solving, and continuing to broaden my development knowledge.
             </Text>
           </Box>
-          <Stack direction={["column", "column", "row"]} alignSelf={'flex-start'}>
-            <Box>
-              <Stack direction={["column", "column", "row", "row"]}>
-                <Box pr={20} pb={11}>
+          <Stack direction={["column", "column", "row"]} alignSelf={'flex-start'} w={'full'}>
+            <Box w={'full'}>
+              <Stack direction={["column", "column", "row", "row"]}  w={'full'}>
+                <Box pr={'30px'} pb={11} w={['100%', '100%', '50%']}>
                   <Heading variant={'listHeader'}>Interests</Heading>
-                  <UnorderedList px={2} py={2} className={'list-text'} fontSize={['sm', 'sm', 'md']}>
+                  <UnorderedList px={'20px'} py={2} className={'list-text'} fontSize={['sm', 'sm', 'md']}>
                     <ListItem>Software Engineering</ListItem>
                     <ListItem>Cloud computing</ListItem>
                     <ListItem>Exercising</ListItem>
                   </UnorderedList>
                 </Box>
-                <Box>
+                <Box w={['100%', '100%', '50%']}>
                   <Heading variant={'listHeader'}>Education</Heading>
-                  <List px={2} py={2} className={'list-text'} fontSize={['sm', 'sm', 'md']}>
+                  <List px={'20px'} py={2} className={'list-text'} fontSize={['sm', 'sm', 'md']}>
                     <ListItem>
                       <ListIcon as={FaGraduationCap} />
-                      Fullstack Development Cert, 2020
+                      Fullstack Development Cert
                     </ListItem>
                     <ListItem>
                       <ListIcon as={FaGraduationCap} color={'transparent'}/>

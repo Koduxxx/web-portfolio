@@ -1,4 +1,5 @@
 Make tapping resume while on mobile download the resume as a pdf
+make the widths consistent between projects, experience, and contact
 
 **---Experience---**
 the cards are a bit too wide on desktop view
@@ -8,3 +9,11 @@ the cards are a bit too wide on desktop view
 **---Projects---**
 spam clicking the buttons can cause the projects to not show up
 
+change the text on projects
+design the error display for contact
+find proper looking padding for various view widths
+make sure padding is consistent on Skills
+make logos more responsive in sizing
+fix the scrolling to sections scrolling a bit too far and cutting it off
+look into navbar shadow and font scaling
+write my own bio and skills

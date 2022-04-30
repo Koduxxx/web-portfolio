@@ -2,6 +2,11 @@ import { extendTheme, theme as base } from "@chakra-ui/react";
 import { mode } from '@chakra-ui/theme-tools';
 
 const theme = extendTheme({
+    layerStyles: {
+        section: {
+            px: ['20px', '40px', '115px', '10%', '16%', '20%'],
+        }
+    },
     components: {
         Button: {
             baseStyle: {
@@ -34,6 +39,19 @@ const theme = extendTheme({
                     color: '#FFFFFF',
                     backgroundColor: '#583E35',
                 }),
+                linkButton: {
+                    iconSpacing: 1,
+                    padding:'6px',
+                    fontSize:'.6rem',
+                    borderRadius:'sm',
+                    size:'xs',
+                    color: '#795548',
+                    border: '1px solid #795548',
+                    backgroundColor: 'transparent',
+                    _hover: {
+                        color: '#FFFFFF', transition: '.6s ease', backgroundColor: '#795548'
+                    },
+                }
             }
         },
         Heading: {
@@ -42,11 +60,13 @@ const theme = extendTheme({
             },
             variants: {
                 sectionHeader: (props) => ({
-                    fontSize: ['2rem'],
+                    fontSize: ['2rem', '2.2rem', '2.5rem'],
                     fontFamily: `Montserrat, sans-serif, ${base.fonts?.body}`,
                     fontWeight: 400,
                     color: mode('#313131', '#98A6AD')(props),
-                    minWidth: ['140px', '180px', '200px', '240px'],
+                    paddingBottom: '10px',
+                    // minWidth: ['140px', '180px', '200px', '240px'],
+                    minWidth: ['140px', '180px', '240px', '270px', '300px', '400px'],
                 }),
                 listHeader: (props) => ({
                     fontSize: ['1.1rem', '1.35rem', '1.35rem', '1.35rem'],

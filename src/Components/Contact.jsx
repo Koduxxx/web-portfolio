@@ -92,88 +92,90 @@ function ContactForm() {
     <Box
       bg={backgroundColorValue}
       id="Contact"
-      px={[5, 10, 20, 20, 250]}
-      py={["10%"]}
+      layerStyle={'section'}
+      py={['50px', '110px']}
       as={motion.div}
     >
-      <Stack direction={["column", "column", "row", "row"]} justifyContent={'space-between'}>
+      <Stack direction={["column", "column", "column", "row"]} spacing={0} justifyContent={'space-between'}>
         <Heading variant={'sectionHeader'}>Contact</Heading>
-        <form onSubmit={handleSubmit} style={{minWidth: '50vw'}}>
-          <FormControl>
-            <Input
-              id="email"
-              isRequired
-              placeholder="Email"
-              type="email"
-              name="email"
-              borderColor={borderColorValue}
-              backgroundColor={inputBackgroundColorValue}
-              borderRadius={'sm'}
-              mb={5}
-            />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
-            <Textarea
-              id="message"
-              placeholder="Message"
-              name="message"
-              value={textValue}
-              onChange={(e) => {
-                setTextValue(e.target.value);
-              }}
-              borderColor={borderColorValue}
-              backgroundColor={inputBackgroundColorValue}
-              borderRadius={'sm'}
-              minH={150}
-            />
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-            />
-          </FormControl>
-          <HStack mt={5}>
-            <Button
-              variant={"formSubmit"}
-              type="submit"
-              isLoading={state.submitting}
-              loadingText={"Submitting"}
-              spinnerPlacement={"end"}
-              disabled={state.submitting}
-              backgroundColor={backgroundColorValue}
-              id={"form-button"}
-              as={motion.button}
-              whileTap={{ scale: 0.9 }}
-            >
-              Send
-            </Button>
-            {/* {successAlert && <AlertComponent />} */}
-            
-              <AnimatePresence>
-                {successAlert && <Alert
-                  variants={slideSideways}
-                  status="success"
-                  as={motion.div}
-                  initial={"hidden"}
-                  animate={"visible"}
-                  exit={"exit"}
-                  variant="solid"
-                  key={'sjdofijsadoifjasoidfj'}
-                  justifyContent={"center"}
-                  width={"200px"}
-                  alignSelf={"center"}
-                  height={"20px"}
-                  borderRadius={"md"}
-                >
-                  <AlertIcon boxSize="16px" mr={2} />
-                  <AlertTitle fontSize="md">Message sent!</AlertTitle>
-                </Alert>}
-              </AnimatePresence>
-          </HStack>
-        </form>
+        <Box width={'100%'}>
+          <form onSubmit={handleSubmit} style={{minWidth: '100%'}}>
+            <FormControl>
+              <Input
+                id="email"
+                isRequired
+                placeholder="Email"
+                type="email"
+                name="email"
+                borderColor={borderColorValue}
+                backgroundColor={inputBackgroundColorValue}
+                borderRadius={'sm'}
+                mb={5}
+              />
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={state.errors}
+              />
+              <Textarea
+                id="message"
+                placeholder="Message"
+                name="message"
+                value={textValue}
+                onChange={(e) => {
+                  setTextValue(e.target.value);
+                }}
+                borderColor={borderColorValue}
+                backgroundColor={inputBackgroundColorValue}
+                borderRadius={'sm'}
+                minH={150}
+              />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
+            </FormControl>
+            <HStack mt={5}>
+              <Button
+                variant={"formSubmit"}
+                type="submit"
+                isLoading={state.submitting}
+                loadingText={"Submitting"}
+                spinnerPlacement={"end"}
+                disabled={state.submitting}
+                backgroundColor={backgroundColorValue}
+                id={"form-button"}
+                as={motion.button}
+                whileTap={{ scale: 0.9 }}
+              >
+                Send
+              </Button>
+              {/* {successAlert && <AlertComponent />} */}
+              
+                <AnimatePresence>
+                  {successAlert && <Alert
+                    variants={slideSideways}
+                    status="success"
+                    as={motion.div}
+                    initial={"hidden"}
+                    animate={"visible"}
+                    exit={"exit"}
+                    variant="solid"
+                    key={'sjdofijsadoifjasoidfj'}
+                    justifyContent={"center"}
+                    width={"200px"}
+                    alignSelf={"center"}
+                    height={"20px"}
+                    borderRadius={"md"}
+                  >
+                    <AlertIcon boxSize="16px" mr={2} />
+                    <AlertTitle fontSize="md">Message sent!</AlertTitle>
+                  </Alert>}
+                </AnimatePresence>
+            </HStack>
+          </form>
+        </Box>
       </Stack>
       {/* <Button onClick={() => setSuccessAlert(true)}>set true</Button>
       <Button onClick={() => setSuccessAlert(false)}>set false</Button> */}

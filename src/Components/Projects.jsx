@@ -14,22 +14,23 @@ import {
   Text
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
+import { BsLink } from 'react-icons/bs'
 import placeholder from '../assets/placeholder.jpg';
 
 const projectsArray = [
     {
-        name: 'Workout Tracker',
-        description: 'Personal workout tracker based on user input',
+        name: 'This website',
+        description: 'I built this mobile responsive website utilzing mainly React, ChakraUI, and React framer motion',
         author: 'Justin Terry',
-        githubLink: 'http://www.google.com',
+        githubLink: 'https://github.com/Koduxxx/web-portfolio',
         imageURL: placeholder,
         language: 'JavaScript',
     },
     {
         name: 'Voxi Two Chicks App',
-        description: 'Personal workout tracker based on user input this is some filler text to look at wrapping',
+        description: 'A React Native application that I built for the popular TV show "Good bones", during my time at Voxi. While I cannot share the code, feel free to ask me about it!',
         author: 'Justin Terry',
-        githubLink: 'http://www.google.com',
+        link: 'https://play.google.com/store/apps/details?id=app.getvoxi.twochicksandahammer&hl=en_US&gl=US',
         imageURL: placeholder,
         language: 'JavaScript',
     },
@@ -51,7 +52,7 @@ const projectsArray = [
     },
 ]
 
-const ProjectCard = ({project: {name, description, author, githubLink, imageURL, language}}) => {
+const ProjectCard = ({project: {name, description, author, githubLink, imageURL, link, language}}) => {
     const fadeOutIn = {
         hidden: {
             x: 0,
@@ -91,11 +92,16 @@ const ProjectCard = ({project: {name, description, author, githubLink, imageURL,
                     <Text fontSize={'.9rem'} color={authorNameColor} pb={2}>{author}</Text>
                     {githubLink ? 
                         <Link href={githubLink} isExternal style={{textDecoration: 'none'}}>
-                            <Button iconSpacing={1} padding={'6px'} fontSize={'.6rem'} borderRadius={'sm'} size={'xs'} _hover={{color: '#FFFFFF', transition: '.6s ease', backgroundColor: '#795548'}} leftIcon={<FaGithub />} color={'#795548'} border={'1px solid #795548'} backgroundColor={'transparent'}>Code</Button>
-                        </Link> : null
+                            <Button variant={'linkButton'} size={'xs'} leftIcon={<FaGithub />}>Code</Button>
+                        </Link> : 
+                        link ? 
+                        <Link href={link} isExternal style={{textDecoration: 'none'}}>
+                            <Button variant={'linkButton'} size={'xs'} leftIcon={<BsLink />}>Link</Button>
+                        </Link> 
+                        : null
                     }
                 </VStack>
-                <Image src={imageURL} h={'41px'} w={'80px'} minw={'80px'} alignSelf={'flex-start'}/>
+                <Image src={imageURL} h={['41px', '78px', '78px']} w={['80px', '150px', '150px']} minW={['80px', '150px', '150px']} alignSelf={'flex-start'}/>
             </HStack>
         </Box>
     )
@@ -124,19 +130,20 @@ export default function Projects(){
             // minW={"100%"}
             justifyContent={'space-between'}
             // spacing={[0, '300px']}
-            direction={['column', 'column', 'row', 'row']}
-            minH={"20vh"}
-            px={[5, 10, '50px', 20, 250]}
-            py={'10%'}
+            direction={['column', 'column', 'column', 'row']}
+            spacing={0}
+            // minH={"20vh"}
+            layerStyle={'section'}
+            py={['50px', '110px']}
             bg={backgroundColor}
             id="Projects"
         >
-            <Heading variant={'sectionHeader'} pb={3}>Projects</Heading>
-            <Box>
+            <Heading variant={'sectionHeader'}>Projects</Heading>
+            <Box width={['100%']}>
                 <ButtonGroup size={'sm'} isAttached marginBottom={25}>
                     <Button variant={projectFilter === 'All' ? 'projectButtonSelected' : 'projectButton'} onClick={() => setProjectFilter('All')}>All</Button>
-                    <Button variant={projectFilter === 'JavaScript' ? 'projectButtonSelected' : 'projectButton'} onClick={() => setProjectFilter('JavaScript')} fontSize={'.8rem'}>JavaScript</Button>
-                    <Button variant={projectFilter === 'Python' ? 'projectButtonSelected' : 'projectButton'} onClick={() => setProjectFilter('Python')} fontSize={'.8rem'}>Python</Button>
+                    <Button variant={projectFilter === 'JavaScript' ? 'projectButtonSelected' : 'projectButton'} onClick={() => setProjectFilter('JavaScript')}>JavaScript</Button>
+                    <Button variant={projectFilter === 'Python' ? 'projectButtonSelected' : 'projectButton'} onClick={() => setProjectFilter('Python')}>Python</Button>
                 </ButtonGroup>
                  <AnimatePresence exitBeforeEnter>
                     <Box minW={'100%'} key={projectFilter}>
