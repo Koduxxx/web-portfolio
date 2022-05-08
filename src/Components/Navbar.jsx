@@ -33,6 +33,9 @@ const NavLink = ({ children }) => (
     onClick={() => Links.includes(children) && children !== 'Resume' ? scrollToSection(children) : null}
     px={0}
     py={1}
+    fontWeight={'700'}
+    color={'black'}
+    lineHeight={1.25}
     rounded={'md'}
     _hover={{
       textDecoration: 'none',

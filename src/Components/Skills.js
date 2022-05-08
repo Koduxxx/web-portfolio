@@ -6,12 +6,13 @@ import {
   Icon,
   Heading,
   Text,
+  Box
 } from "@chakra-ui/react";
-import { IoIosMail, IoLogoJavascript } from "react-icons/io";
-import { FaPython, FaAws } from "react-icons/fa";
+import { IoIosMail, IoLogoJavascript, IoIosMore } from "react-icons/io";
+import { FaPython, FaAws, FaGitAlt } from "react-icons/fa";
 import { SiChakraui } from "react-icons/si";
 
-const SpecificSkill = ({iconName = IoIosMail, skillName = 'skill name placeholder', skillSpecifics = 'skill specifics placeholder'}) => {
+const SpecificSkill = ({iconName = IoIosMore, skillName = 'skill name placeholder', skillSpecifics = 'skill specifics placeholder'}) => {
     return(
         <VStack 
             minW={'33.3%'} 
@@ -19,7 +20,6 @@ const SpecificSkill = ({iconName = IoIosMail, skillName = 'skill name placeholde
             // maxW={'25%'}
             pb={[4, 5, 6]} 
             spacing={0} 
-            mt={['8px', 0]}
         >
             <Icon as={iconName} mb={2} fontSize={[45, 50, 60]} color={useColorModeValue('icons.light', 'icons.dark')}/>
             <Text fontSize={['1.15rem', '1.15rem', '1.4rem']} fontFamily={'Montserrat'}>{skillName}</Text>
@@ -31,21 +31,23 @@ const SpecificSkill = ({iconName = IoIosMail, skillName = 'skill name placeholde
 const Skills = () => {
     const backgroundColorValue = useColorModeValue('background.lightSecondary', 'background.darkSecondary')
     return(
-        <VStack spacing={'8px'} textAlign={'center'} px={['20px', '40px', '115px', '10%', '16%']} py={['60px', '60px', '110px']} bg={backgroundColorValue}>
-            <Heading variant={'sectionHeader'} pb={'30px'}>
-                Skills
-            </Heading>
-            <Stack spacing={'0px'} direction={['column', 'row', 'row']} w={'100%'}>
-                <SpecificSkill w={'30%'} iconName={IoLogoJavascript} skillName='Javascript'/>
-                <SpecificSkill w={'30%'} iconName={FaPython} skillName='Python'/>
-                <SpecificSkill w={'30%'} iconName={FaAws} skillName='AWS'/>
-            </Stack>
-            <Stack spacing={'0px'} direction={['column', 'row', 'row']} w={'100%'}>
-                <SpecificSkill iconName={SiChakraui} skillName='UI Frameworks' skillSpecifics='Chakra UI, Material UI'/>
-                <SpecificSkill skillName='Very'/>
-                <SpecificSkill skillName='Cool'/>
-            </Stack>
-        </VStack>
+        <Box layerStyle={'section'} bg={backgroundColorValue}  py={['60px', '60px', '110px']}>
+            <VStack spacing={'0px'} textAlign={'center'}>
+                <Heading variant={'sectionHeader'} pb={['10px', '20px', '30px']}>
+                    Skills
+                </Heading>
+                <Stack spacing={'0px'} direction={['column', 'row', 'row']} w={'100%'} pb={['0px', '0px', '20px', '40px']}>
+                    <SpecificSkill iconName={IoLogoJavascript} skillName='Javascript' skillSpecifics='React, React Native'/>
+                    <SpecificSkill iconName={FaPython} skillName='Python' skillSpecifics='Tkinter'/>
+                    <SpecificSkill iconName={FaAws} skillName='AWS' skillSpecifics='S3, Lambda, AppSync, Rekognition, CodeCommit, Cognito'/>
+                </Stack>
+                <Stack spacing={'0px'} direction={['column', 'row', 'row']} w={'100%'}>
+                    <SpecificSkill iconName={SiChakraui} skillName='UI Frameworks' skillSpecifics='Chakra UI, Material UI, Native Base'/>
+                    <SpecificSkill iconName={FaGitAlt} skillName='Version Control' skillSpecifics='Git'/>
+                    <SpecificSkill skillName='Others' skillSpecifics='GraphQL, Agile Methodologies, HTML5, CSS3'/>
+                </Stack>
+            </VStack>
+        </Box>
     )
 };
 

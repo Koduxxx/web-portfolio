@@ -14,41 +14,35 @@ import {
   Text
 } from "@chakra-ui/react";
 import { FaGithub } from "react-icons/fa";
-import { BsLink } from 'react-icons/bs'
+import { BsLink } from 'react-icons/bs';
 import placeholder from '../assets/placeholder.jpg';
+import placeholderImg from '../assets/placeholder-image.png'
+import twoChicksPic from '../assets/two-chicks-app.png';
+import portfolioImage from '../assets/portfolio-image.png';
 
 const projectsArray = [
     {
         name: 'This website',
-        description: 'I built this mobile responsive website utilzing mainly React, ChakraUI, and React framer motion',
+        description: 'I built this fully responsive website utilzing mainly React, ChakraUI, and React framer motion',
         author: 'Justin Terry',
         githubLink: 'https://github.com/Koduxxx/web-portfolio',
-        imageURL: placeholder,
+        imageURL: portfolioImage,
         language: 'JavaScript',
     },
     {
         name: 'Voxi Two Chicks App',
         description: 'A React Native application that I built for the popular TV show "Good bones", during my time at Voxi. While I cannot share the code, feel free to ask me about it!',
         author: 'Justin Terry',
-        link: 'https://play.google.com/store/apps/details?id=app.getvoxi.twochicksandahammer&hl=en_US&gl=US',
-        imageURL: placeholder,
+        link: 'https://apps.apple.com/us/app/two-chicks-and-a-hammer/id1509777614?platform=iphone',
+        imageURL: twoChicksPic,
         language: 'JavaScript',
     },
      {
-        name: 'Cool Space Website',
-        description: 'Personal workout tracker based on user input',
+        name: 'Placeholder',
+        description: "This is a placeholder for an app that I'm currently working on!",
         author: 'Justin Terry',
-        githubLink: 'http://www.google.com',
-        imageURL: placeholder,
+        imageURL: placeholderImg,
         language: 'Python',
-    },
-    {
-        name: 'App 4',
-        description: 'Personal workout tracker based on user input this is some filler text to look at wrapping',
-        author: 'Justin Terry',
-        githubLink: 'http://www.google.com',
-        imageURL: placeholder,
-        language: 'Python'
     },
 ]
 
@@ -80,15 +74,23 @@ const ProjectCard = ({project: {name, description, author, githubLink, imageURL,
         },
   };
 
-    const projectNameColor = useColorModeValue('text.projects.name.light', 'text.projects.name.dark');
     const authorNameColor = useColorModeValue('text.projects.author.light', 'text.projects.author.dark');
 
     return(
         <Box as={motion.div} variants={fadeOutIn} initial={'hidden'} animate={'visible'} exit={'exit'} key={name} pb={25}>     
             <HStack justifyContent={'space-between'} spacing={'14px'}>
                 <VStack alignItems={'flex-start'} maxW={'70%'} spacing={0}>
-                    <Text textAlign={'left'} _hover={{color: '#795548', transition: '.6s ease'}} fontSize={'1.1rem'} fontWeight={700} fontFamily={'Montserrat'} color={projectNameColor} mb={0}>{name}</Text>
-                    <Text fontSize={'.7rem'} pb={2}>{description}</Text>
+                    {githubLink ? 
+                        <Link href={githubLink} isExternal style={{textDecoration: 'none'}}>
+                            <Text variant={'projectName'}>{name}</Text>
+                        </Link> : 
+                        link ?
+                        <Link href={link} isExternal style={{textDecoration: 'none'}}>
+                            <Text variant={'projectName'}>{name}</Text>
+                        </Link> : 
+                        <Text variant={'projectName'}>{name}</Text>
+                    }
+                    <Text fontSize={['.7rem', '.7rem', '.9rem']} pb={2}>{description}</Text>
                     <Text fontSize={'.9rem'} color={authorNameColor} pb={2}>{author}</Text>
                     {githubLink ? 
                         <Link href={githubLink} isExternal style={{textDecoration: 'none'}}>
@@ -101,7 +103,7 @@ const ProjectCard = ({project: {name, description, author, githubLink, imageURL,
                         : null
                     }
                 </VStack>
-                <Image src={imageURL} h={['41px', '78px', '78px']} w={['80px', '150px', '150px']} minW={['80px', '150px', '150px']} alignSelf={'flex-start'}/>
+                <Image src={imageURL} h={['41px', '60px', '78px']} w={['73px', '106px', '139px']} minW={['80px', '106px', '139px']} alignSelf={'flex-start'}/>
             </HStack>
         </Box>
     )

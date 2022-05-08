@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Text, Heading, useColorModeValue, Stack, UnorderedList, ListItem, VStack, HStack, Button, useColorMode, Center } from '@chakra-ui/react';
-import './Experience.css';
 
 const jobExperience = [
     {
@@ -8,13 +7,13 @@ const jobExperience = [
         companyName: 'Voxi',
         dateAndLocation: `January 2021 - May 2021 \u2022 Fishers, Indiana`,
         description: [
-            // 'Architected a React Native app using Typescript, GraphQL, AWS AppSync, DynamoDB, Git based CodeCommit for source control, and several other AWS services',
+            'Architected a React Native app using Typescript, GraphQL, AWS AppSync, DynamoDB, Git based CodeCommit for source control, and several other AWS services',
             // 'Collaborated with a UI/UX designer to design and implement features',
-            // 'Implemented User Authentication and Authorization using AWS Amplify and Cognito',
+            'Implemented User Authentication and Authorization using AWS Amplify and Cognito',
             'Utilized redux global state management and GraphQL to allow partners to dynamically change the theme of their app',
             'Optimized performance and usability by asynchronously fetching APIs, avoiding costly functions, and minimizing the amount of renders needed',
-            'Created reusable components for increased efficiency',
-            'Participated in biweekly code reviews with the CTO'
+            // 'Created reusable components for increased efficiency',
+            // 'Participated in biweekly code reviews with the CTO'
         ],
         key: 'test1'
     },
@@ -24,12 +23,12 @@ const jobExperience = [
         dateAndLocation: `September 2020 - December 2020 \u2022 Fishers, Indiana`,
         description: [
             // 'Independently spearheaded exploration of possible new features and services, reporting findings to the CTO in a clear and concise manner',
-            // 'Architected a web scraping script that retrieved and uploaded product information to an S3 bucket, utilizing primarily NodeJS/Typescript and Puppeteer ',
-            // 'Architected a prototype for automatic product recognition',
+            'Architected a web scraping script that retrieved and uploaded product information to an S3 bucket, utilizing primarily NodeJS/Typescript and Puppeteer ',
+            'Architected a prototype for automatic product recognition',
             'Trained machine learning models utilizing AWS Rekognition',
             'Implemented a serverless system to capture frames from video, using AWS Lambda',
-            'Measured and validated model accuracy',
-            'Participated in weekly standups, giving progress reports and newfound insights'
+            // 'Measured and validated model accuracy',
+            // 'Participated in weekly standups, giving progress reports and newfound insights'
         ],
         key: 'test2'
     },
@@ -100,15 +99,14 @@ function Card({job: {title, companyName, dateAndLocation, description}}) {
             px={5}
             py={5}
             borderRadius={'sm'}
-            // boxShadow={['rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px']}
             boxShadow={['rgba(0, 0, 0, 0.26) 0px 0px 5px']}
             overflow='hidden' 
             _hover={{boxShadow: ['rgba(0, 0, 0, 0.36) 0px 0px 10px']}}
         >
-            <Text id={'job-title'} textColor={useColorModeValue('text.jobTitle.light', 'text.jobTitle.dark')}>{title}</Text>
-            <Text id={'company-name'} textColor={useColorModeValue('text.companyName.light', 'text.companyName.dark')}>{companyName ? companyName : null}</Text>
-            <Text id={'job-location'} textColor={useColorModeValue('text.jobLocation.light', 'text.jobLocation.Dark')}>{dateAndLocation}</Text>
-            <UnorderedList pl={10} fontSize={'.65rem'}>
+            <Text variant={'jobTitle'}>{title}</Text>
+            <Text variant={'companyName'}>{companyName ? companyName : null}</Text>
+            <Text variant={'jobLocation'}>{dateAndLocation}</Text>
+            <UnorderedList pl={10} fontSize={['.65rem', '.65rem', '.85rem']}>
                 {description.map((sentence, index) => <ListItem py={'2px'} key={index}>{sentence}</ListItem>)}
             </UnorderedList>
         </Box>

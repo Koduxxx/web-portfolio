@@ -4,7 +4,8 @@ import { mode } from '@chakra-ui/theme-tools';
 const theme = extendTheme({
     layerStyles: {
         section: {
-            px: ['20px', '40px', '115px', '10%', '16%', '20%'],
+            // px: ['20px', '40px', '115px', '10%', '16%', '20%'],
+            px: ['20px', '30px', '90px', '10%', '13%', '20%'],
         }
     },
     components: {
@@ -42,7 +43,7 @@ const theme = extendTheme({
                 linkButton: {
                     iconSpacing: 1,
                     padding:'6px',
-                    fontSize:'.6rem',
+                    fontSize:['.6rem', '.6rem', '.7rem'],
                     borderRadius:'sm',
                     size:'xs',
                     color: '#795548',
@@ -66,7 +67,7 @@ const theme = extendTheme({
                     color: mode('#313131', '#98A6AD')(props),
                     paddingBottom: '10px',
                     // minWidth: ['140px', '180px', '200px', '240px'],
-                    minWidth: ['140px', '180px', '240px', '270px', '300px', '400px'],
+                    minWidth: ['140px', '180px', '240px', '270px', '300px', '340px'],
                 }),
                 listHeader: (props) => ({
                     fontSize: ['1.1rem', '1.35rem', '1.35rem', '1.35rem'],
@@ -77,9 +78,31 @@ const theme = extendTheme({
         },
         Text: {
             variants: {
-                textTest: {
-                    backgroundColor: 'red'
-                }
+                jobTitle: (props) => ({
+                    fontSize: ['.9rem', '.9rem', '1rem'],
+                    fontWeight: 700,
+                    lineHeight: 1.5,
+                    color: mode('#777777', 'rgba(255, 255, 255, 0.8)')(props)
+                }),
+                jobLocation: (props) => ({
+                    fontSize: ['.7rem', '.7rem', '.9rem'],
+                    fontFamily: 'Roboto, sans-serif',
+                    color: mode('rgba(0, 0, 0, 0.8)', 'rgba(255, 255, 255, 0.8)')(props)
+                }),
+                companyName: (props) => ({
+                    fontSize: ['.9rem', '.9rem', '1rem'],
+                    fontWeight: 400,
+                    color: mode('#000000', '#795548')(props)
+                }),
+                projectName: (props) => ({
+                    textAlign:'left',
+                    fontSize:['1.1rem', '1.1rem', '1.35rem'],
+                    fontWeight:700,
+                    fontFamily:'Montserrat',
+                    color: mode('#000000', '#FFFFFF')(props),
+                    mb: '5px',
+                    _hover:{color: '#795548', transition: '.6s ease'},
+                })
             }
         },
         List: {

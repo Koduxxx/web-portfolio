@@ -17,7 +17,7 @@ import {
   List,
 } from "@chakra-ui/react";
 import './Home.css';
-import { FaLinkedin, FaGithub, FaGraduationCap } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaGraduationCap, FaFilePdf } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoDocumentAttachSharp } from 'react-icons/io5'
 import { isMobile } from 'react-device-detect';
@@ -27,7 +27,7 @@ import selfie from "../assets/circle-portrait.png"
 export default function Home() {
   const headingColor = useColorModeValue('text.headings.light', 'text.headings.dark');
   return (
-    <Box py={'60px'} layerStyle={'section'} bg={useColorModeValue("background.lightPrimary", "background.darkPrimary")} id="Home">
+    <Box py={'70px'} layerStyle={'section'} bg={useColorModeValue("background.lightPrimary", "background.darkPrimary")} id="Home">
       <Stack direction={["column", "column", "column", "row"]}>
         <VStack
           mr={[0, 0, 0, '60px']}
@@ -61,7 +61,7 @@ export default function Home() {
             </Link>
             <Link download={isMobile} href={ResumePDF} isExternal px={'2px'}>
               <Box as={motion.div} whileHover={{scale: 1.1}}>
-                <Icon as={IoDocumentAttachSharp} w={[8, 8, 10]} h={[8, 8, 10]} color={"#785447"}/>
+                <Icon as={FaFilePdf} w={[8, 8, 10]} h={[8, 8, 10]} color={"#785447"}/>
               </Box>
             </Link>
             <Link href="mailto:justinterry796@gmail.com" isExternal px={'2px'}>
